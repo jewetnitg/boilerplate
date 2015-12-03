@@ -1,11 +1,6 @@
 /**
  * @author rik
  */
-const viewConfig = {
-
-  defaultImplementation: 'handlebars',
-  templateBaseUrl: 'templates/'
-
-};
+const viewConfig = {};
 
 export default viewConfig;

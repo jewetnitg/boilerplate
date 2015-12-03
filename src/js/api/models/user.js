@@ -1,7 +1,7 @@
 /**
  * @author rik
  */
-import session from '../../lib/session';
+import session from 'frntnd-framework/src/constants/session';
 
 /**
  * @name UserModel

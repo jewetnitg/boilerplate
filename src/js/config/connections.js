@@ -4,7 +4,7 @@
 
 const connectionConfig = {
   'local-xhr': {
-    url: 'http://localhost:1337',
+    url: 'http://192.168.0.7:1337',
     adapter: 'XHR'
   }
 };

@@ -13,11 +13,13 @@
   "author": "Rik Hoffbauer",
   "license": "ISC",
   "dependencies": {
-    "frontend-framework": "file:../../tiny_modules/framework",
+    "frntnd-framework": "file:/Users/rik/Develop/Personal/tiny_modules/framework",
     "jquery": "2.1.4",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "serve-static": "^1.10.0"
   },
   "devDependencies": {
+    "pushstate-asset-server": "^0.0.2",
     "babel": "5.8.23",
     "babel-core": "5.8.25",
     "babelify": "^6.1.3",

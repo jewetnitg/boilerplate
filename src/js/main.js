@@ -2,7 +2,8 @@
  * @author rik
  */
 import _ from 'lodash';
-import $ from 'jquery';
+import jquery from 'jquery';
+import riot from 'riot';
 
 // frntnd framework implementation modules, models, views, services etc.
 const files = require('./**/!(main|main_dev|main_prod).js', {
@@ -24,8 +25,13 @@ _.each(files, (file, path) => {
 });
 
 // set globals
-window.$ = $;
+window.$ = jquery;
 window._ = _;
+
+frontendOptions.libraries = {
+  riot,
+  jquery
+};
 
 // call the framework with the options generated from the files
 export default frontendOptions;

@@ -1,17 +1,11 @@
 /**
  * @author rik
  */
-const TestStaticView = {
-  view: 'test',
-  holder: '.static',
-  controller(data) {
-    console.log('staticview controller data', JSON.stringify(data), 'current data', this.data);
+import test from '../../../tags/test.tag';
 
-    return {
-      test2: 'staticView',
-      test: 'staticView'
-    }
-  }
+const TestStaticView = {
+  tag: test,
+  holder: 'body'
 };
 
 export default TestStaticView;

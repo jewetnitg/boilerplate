@@ -1,6 +1,6 @@
 <test>
     <h1>
-      { test }
+      TEST! { test }
     </h1>
     <script>
       this.test = opts.test;

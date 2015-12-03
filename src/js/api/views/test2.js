@@ -3,9 +3,9 @@
  */
 import tag from '../../../tags/user-details-2.tag';
 
-const test2View = {
+const testStaticView = {
   tag,
-  holder: 'body'
+  holder: '.static'
 };
 
-export default test2View;
+export default testStaticView;

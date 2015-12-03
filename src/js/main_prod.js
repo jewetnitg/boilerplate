@@ -1,8 +1,10 @@
 /**
  * @author rik
  */
-import frontend from 'frontend-framework';
+import frontend from 'frntnd-framework';
 import main from './main';
 
 main.env = 'prod';
-frontend(main);
+window.app = frontend(main);
+
+export default window.app;
