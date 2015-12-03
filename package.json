@@ -4,7 +4,7 @@
   "description": "Boilerplate for the frontend framework",
   "main": "index.js",
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp build:prod",
     "dev": "gulp dev",
     "prod": "gulp prod",
     "test": "gulp test",
