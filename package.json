@@ -16,6 +16,7 @@
     "frntnd-framework": "file:/Users/rik/Develop/Personal/tiny_modules/framework",
     "jquery": "2.1.4",
     "lodash": "^3.10.1",
+    "riot": "^2.3.11",
     "serve-static": "^1.10.0"
   },
   "devDependencies": {
