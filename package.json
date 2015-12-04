@@ -13,7 +13,7 @@
   "author": "Rik Hoffbauer",
   "license": "ISC",
   "dependencies": {
-    "frntnd-framework": "file:/Users/rik/Repositories/framework",
+    "frntnd-framework": "file:../modules/frontend-framework",
     "jquery": "2.1.4",
     "lodash": "^3.10.1",
     "riot": "^2.3.11",
