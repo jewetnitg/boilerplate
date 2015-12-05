@@ -45,8 +45,8 @@ const UserController = {
       });
   },
 
-  getUserWithId56(req) {
-    return app.models.user.server.findById(56)
+  getUserWithId1(req) {
+    return app.models.user.server.findById(1)
       .then(model => {
         const interval = setInterval(() => {
           req.sync({

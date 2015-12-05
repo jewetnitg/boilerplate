@@ -7,7 +7,7 @@ const routes = {
   '/users': {
     // frontend-router spec
     policies: ['alwaysDeny'],
-    unauthorized: '/user/56',
+    unauthorized: '/user/1',
     // part of the View spec
     view: 'test',
     controller: 'ModelController.list',
@@ -23,9 +23,9 @@ const routes = {
     model: 'user'
   },
 
-  '/user56': {
+  '/user1': {
     view: 'test2',
-    controller: 'UserController.getUserWithId56'
+    controller: 'UserController.getUserWithId1'
   }
 
 };
