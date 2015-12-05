@@ -1,6 +1,8 @@
 /**
  * @author rik
  */
+import 'babel-polyfill';
+
 import _ from 'lodash';
 import jquery from 'jquery';
 import riot from 'riot';
