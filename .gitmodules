@@ -1,0 +1,4 @@
+[submodule "modules/frontend-framework"]
+	path = modules/frontend-framework
+	url = /Users/rik/Repositories/framework
+	branch = master
