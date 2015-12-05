@@ -1,3 +1,4 @@
 [submodule "modules/frntnd-framework"]
 	path = modules/frntnd-framework
-url=https://github.com/jewetnitg/framework.git
+  url=https://github.com/jewetnitg/framework.git
+  branch = master
