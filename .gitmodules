@@ -1,0 +1,3 @@
+[submodule "modules/frntnd-framework"]
+	path = modules/frntnd-framework
+	url = /Users/rik/Repositories/frntnd-framework.git
