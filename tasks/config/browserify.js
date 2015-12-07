@@ -25,7 +25,10 @@ module.exports = function (gulp, plugins, growl) {
       throw new Error('Browserify config entries must be a string');
     }
 
-    browserifyConfig.entries = main.replace(/\.js$/gi, '_' + env + '.js');
+    browserifyConfig.entries = [
+      'node_modules/babel-polyfill/lib/index',
+      main.replace(/\.js$/gi, '_' + env + '.js')
+    ];
 
     var bundler = browserify(browserifyConfig)
       .transform(istanbul)
