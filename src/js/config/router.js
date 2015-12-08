@@ -10,7 +10,7 @@
  */
 const routerConfig = {
   defaultRoute: '/home',
-  pushState: false
+  pushState: true
 };
 
 export default routerConfig;

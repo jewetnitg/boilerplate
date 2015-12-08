@@ -19,7 +19,8 @@ var buildConfig = {
   defaultTask: "build:prod",
 
   tasks: {
-    'build:prod': {
+    // run production build
+    'build:prod': [
       // run tests once
       'test',
 
@@ -37,8 +38,10 @@ var buildConfig = {
 
       // put the build in an archive
       'tar'
-    },
-    'build:dev': {
+    ],
+
+    // run develop build
+    'build:dev': [
       // run tests once
       'test',
 
@@ -56,8 +59,10 @@ var buildConfig = {
 
       // put the build in an archive
       'tar'
-    },
-    'dev': {
+    ],
+
+    // run develop build and start a dev server
+    'dev': [
       // build project
       'build:dev',
 
@@ -66,8 +71,7 @@ var buildConfig = {
 
       // rebuild on change
       'watch'
-    },
-    'prod': {}
+    ]
   }
 
 };

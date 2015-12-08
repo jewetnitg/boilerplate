@@ -33,7 +33,6 @@
     "destination": "./build/docs",
     "template": "./node_modules/jsdoc-oblivion/template",
     "recurse": true,
-    "readme": "./README.md",
     "tutorials": "./docs"
   }
 }
