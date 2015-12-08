@@ -1,6 +1,8 @@
 /**
- * @author rik
+ * @todo implement
  */
-const staticViewsConfig = {};
+const staticViewsConfig = {
+  holder: '.static-views'
+};
 
 export default staticViewsConfig;

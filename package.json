@@ -12,6 +12,21 @@
   },
   "author": "Rik Hoffbauer",
   "license": "ISC",
+  "browserify": {
+    "standalone": "standalone",
+    "entries": "./standalone.js",
+    "debug": true,
+    "transform": [
+      [
+        "babelify",
+        {
+          "sourceMaps": true
+        }
+      ],
+      "require-globify",
+      "riotify"
+    ]
+  },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "frntnd-framework": "^0.0.3",

@@ -1,11 +1,10 @@
 /**
  * @author rik
  */
-import test from '../../../tags/test.tag';
+import tag from '../../../tags/menu-bar.tag';
 
 const TestStaticView = {
-  tag: test,
-  holder: 'body'
+  tag
 };
 
 export default TestStaticView;

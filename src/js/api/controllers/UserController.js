@@ -4,72 +4,24 @@
 
 const UserController = {
 
-  someMethod(req) {
-    return Promise.resolve(req.param('id'));
-  },
-
-  someOtherMethod(req) {
-    return Promise.resolve('staticData');
-  },
-
-  anotherMethod(req) {
-    return Promise.resolve({
-      model: {
-        age: 33
-      }
-    });
-  },
-
-  yetAnotherMethod(req) {
-    return Promise.resolve({
-      model: {
-        age: 45
-      }
-    });
-  },
-
-  testMethod(req) {
-    const id = req.param('id');
-
-    return app.models.user.server.findById({id})
-      .then(model => {
-        app.models.user.listenToModel(model, (_model) => {
-          req.sync({
-            model: _model
-          });
+  collectSomeSpecificData(req) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        req.sync({
+          model: {
+            name: 'synced'
+          }
         });
+      }, 2000);
 
-        return {
-          model
-        };
+      resolve({
+        model: {
+          name: 'bob'
+        }
       });
-  },
-
-  getUserWithId1(req) {
-    return app.models.user.server.findById(1)
-      .then(model => {
-        const interval = setInterval(() => {
-          req.sync({
-            model: model
-          });
-        }, 1000);
-
-        // @override
-        req.destruct = () => {
-          clearInterval(interval);
-        };
-
-        app.models.user.listenTo(model, (_model) => {
-          req.sync({
-            model: _model
-          });
-        });
-
-        return {
-          model
-        };
-      });
+    });
   }
+
 };
 
 export default UserController;

@@ -1,11 +1,12 @@
 var shell = require('gulp-shell');
 var path = require('path');
-var packageJson = require('../../package.json');
+var packageJson = require('../package.json');
 
-module.exports = function (gulp, plugins, growl) {
+module.exports = function (gulp) {
   var url = null;
   var errorMessage = '';
   var tempDir = '.gh-pages';
+  var archivePath = './build/build.tar.gz';
   var sourceDir = './build/docs/.';
 
   if (packageJson.repository) {
@@ -33,8 +34,9 @@ module.exports = function (gulp, plugins, growl) {
       // remove .gh-pages dir, this is our temp dir
       'rm -rf ' + tempDir,
 
-      'git clone ' + path.resolve(process.cwd()) + ' ' + tempDir,
 
+      'git clone ' + path.resolve(process.cwd()) + ' ' + tempDir,
+      'cp ' + archivePath + ' ' + tempDir,
       // go into the gh-pages directory and do git stuff
       'cd ' + tempDir + ' && '
       + 'git remote remove origin && '
@@ -43,6 +45,7 @@ module.exports = function (gulp, plugins, growl) {
       + 'git push origin --delete gh-pages && '
       + 'git checkout --orphan gh-pages && '
       + 'git rm -rf . && '
+      + 'cp ../' + archivePath.replace(/^[\.|\/]+/g, '') + ' . && '
       + 'cp -R ../' + sourceDir.replace(/^[\.|\/]+/g, '') + ' . && '
       + 'git add -A && '
       + 'git commit -m "gh-pages committed from build" && '
@@ -50,7 +53,6 @@ module.exports = function (gulp, plugins, growl) {
 
       'rm -rf ' + tempDir
     ]));
-
   } else {
     gulp.task('gh-pages', function (cb) {
       console.error('Can\'t run gulp task gh-pages, reason: ' + errorMessage);

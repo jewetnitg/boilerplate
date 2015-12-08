@@ -1,7 +1,7 @@
 /**
- * @author rik
+ * Config for communicator {@link Connection}s
+ * @namespace config/connections
  */
-
 const connectionConfig = {
   'local-xhr': {
     url: 'http://192.168.0.7:1337',

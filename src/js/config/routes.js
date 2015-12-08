@@ -1,31 +1,40 @@
 /**
- * @author rik
+ * The routes of the {@link Router}
+ *
+ * @namespace config/router
+ * @example
+ * const routes = {
+ *  '/login': {
+ *     view: 'LoginView'
+ *   },
+ *
+ *  '/users': {
+ *     view: 'UserListView',
+ *     model: 'user',
+ *     controller: 'ModelController.list',
+ *     policies: ['isLoggedIn'],
+ *     unauthorized: '/login'
+ *   },
+ *
+ *  '/user/:id': {
+ *     view: 'UserDetailsView',
+ *     model: 'user',
+ *     controller: 'ModelController.details'
+ *   },
+ *
+ *  '/user/specialPage': {
+ *     view: 'UserSpecialView',
+ *     controller: 'UserController.getUserBySomeSpecialCriteria'
+ *   }
+ * };
+ *
+ * export default routes;
  */
-
 const routes = {
 
-  '/users': {
-    // frontend-router spec
-    policies: ['alwaysDeny'],
-    unauthorized: '/user/1',
-    // part of the View spec
-    view: 'test',
-    controller: 'ModelController.list',
-    // part of the Controller spec
-    model: 'user'
-  },
-
-  '/user/:id': {
-    // part of the View spec
-    view: 'test',
-    controller: 'ModelController.details',
-    // part of the Controller spec
-    model: 'user'
-  },
-
-  '/user1': {
-    view: 'test2',
-    controller: 'UserController.getUserWithId1'
+  '/home': {
+    view: 'HomeView',
+    staticViews: ['MenuBarView']
   }
 
 };

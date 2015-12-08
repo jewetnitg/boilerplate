@@ -1,1 +1,3 @@
-import './src/js/main_prod';
+import app from './src/js/main_prod';
+
+export default app;

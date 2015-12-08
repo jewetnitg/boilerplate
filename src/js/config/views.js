@@ -1,6 +1,8 @@
 /**
- * @author rik
+ * @todo implement?
  */
-const viewConfig = {};
+const viewConfig = {
+  holder: '.current-view'
+};
 
 export default viewConfig;
