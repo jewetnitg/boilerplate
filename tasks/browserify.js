@@ -1,3 +1,5 @@
+var path = require('path');
+
 var _ = require('lodash');
 
 var browserify = require('browserify');
@@ -34,13 +36,19 @@ module.exports = function (gulp, plugins, growl) {
       // @todo only include frontend-framework node module
       // the regex below doesn't work for some reason, for now include node modules, otherwise the build fails
       //ignore: /((?!node_modules\/frontend-framework)(node_modules\/[\s|\S]+))|(\.tag$)/ig
-      ignore: /(\.tag$)/ig
+      ignore: /(\.tag$)/ig,
+      sourceMaps: "inline"
     });
 
     return browserify(browserifyConfig)
       .transform(_babel)
       .transform(riotify)
       .transform(requireGlobify)
+      .plugin('minifyify', {
+        map: 'main.js.map',
+        base: 'src',
+        output: './build/dst/main.js.map'
+      })
       .bundle()
       .on('error', function (err) {
         console.error(err);
@@ -48,10 +56,6 @@ module.exports = function (gulp, plugins, growl) {
       })
       .pipe(source('main.js'))
       .pipe(buffer())
-      .pipe(sourcemaps.init({
-        loadMaps: true
-      }))
-      .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('./build/dst'));
   }
 
