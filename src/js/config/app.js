@@ -1,3 +1,5 @@
+// written in ES5 so to yeoman generator can read it
+
 /**
  *
  * Configuration for the {@link Application}
@@ -8,12 +10,10 @@
  * @property descriptorUrl {String}
  * @property defaultConnection {String}
  */
-const appConfig = {
+module.exports = {
 
   defaultLocale: 'en-GB',
   descriptorUrl: 'http://localhost:1337/_describe',
   defaultConnection: 'local-xhr'
 
 };
-
-export default appConfig;
