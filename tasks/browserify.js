@@ -31,8 +31,10 @@ module.exports = function (gulp, plugins, growl) {
       main.replace(/\.js$/gi, '_' + env + '.js')
     ];
     var _babel = babel.configure({
-      // only include frontend-framework node module, ignore .tag files
-      ignore: /((?!node_modules\/frontend-framework)(node_modules\/[\s|\S]+))|(\.tag$)/ig
+      // @todo only include frontend-framework node module
+      // the regex below doesn't work for some reason, for now include node modules, otherwise the build fails
+      //ignore: /((?!node_modules\/frontend-framework)(node_modules\/[\s|\S]+))|(\.tag$)/ig
+      ignore: /(\.tag$)/ig
     });
 
     return browserify(browserifyConfig)
