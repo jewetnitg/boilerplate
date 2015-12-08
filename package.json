@@ -12,9 +12,6 @@
   },
   "author": "Rik Hoffbauer",
   "license": "ISC",
-  "bundledDependencies": [
-    "frntnd-framework"
-  ],
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "frntnd-framework": "^0.0.3",
