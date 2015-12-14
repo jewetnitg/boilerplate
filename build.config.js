@@ -33,6 +33,9 @@ var buildConfig = {
       // copy static assets
       'copy',
 
+      // compile and copy less
+      'less',
+
       // create documentation
       'jsdoc',
 
@@ -53,6 +56,9 @@ var buildConfig = {
 
       // copy static assets
       'copy',
+
+      // compile and copy less
+      'less',
 
       // create documentation
       'jsdoc',

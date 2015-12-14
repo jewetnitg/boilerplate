@@ -1,7 +1,7 @@
 /**
  * @author rik
  */
-import tag from '../../../tags/home.tag';
+import template from '../../../tags/home.tag';
 
 /**
  * HomeView is an example view
@@ -9,7 +9,7 @@ import tag from '../../../tags/home.tag';
  * @extends View
  */
 const HomeView = {
-  tag
+  template
 };
 
 export default HomeView;

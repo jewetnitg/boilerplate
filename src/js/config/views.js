@@ -1,8 +1,9 @@
+// written in ES5 so it can be used by the yeoman generator
+
 /**
- * @todo implement?
+ * @name config/views
+ * @property holder {String}
  */
-const viewConfig = {
+module.exports = {
   holder: '.current-view'
 };
-
-export default viewConfig;

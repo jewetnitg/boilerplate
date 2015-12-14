@@ -34,7 +34,16 @@ const routes = {
 
   '/home': {
     view: 'HomeView',
+    policies: ['alwaysAllow'],
     staticViews: ['MenuBarView']
+  },
+
+  '/500': {
+    view: 'ErrorRouteView'
+  },
+
+  '/403': {
+    view: 'UnauthorizedRouteView'
   }
 
 };

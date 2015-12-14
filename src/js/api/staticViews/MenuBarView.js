@@ -1,10 +1,10 @@
 /**
  * @author rik
  */
-import tag from '../../../tags/menu-bar.tag';
+import template from '../../../tags/menu-bar.tag';
 
 const TestStaticView = {
-  tag
+  template
 };
 
 export default TestStaticView;
