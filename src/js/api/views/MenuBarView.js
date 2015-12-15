@@ -3,8 +3,8 @@
  */
 import template from '../../../tags/menu-bar.tag';
 
-const TestStaticView = {
+const MenuBarView = {
   template
 };
 
-export default TestStaticView;
+export default MenuBarView;

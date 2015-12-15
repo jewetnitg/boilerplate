@@ -5,5 +5,6 @@
  * @property holder {String}
  */
 module.exports = {
-  holder: '.current-view'
+  holder: '.current-view',
+  adapter: 'riot'
 };

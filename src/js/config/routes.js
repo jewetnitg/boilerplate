@@ -34,8 +34,8 @@ const routes = {
 
   '/home': {
     view: 'HomeView',
-    policies: ['alwaysAllow'],
-    staticViews: ['MenuBarView']
+    data: ['user.ensure'],
+    staticViews: ['menuBar']
   },
 
   '/500': {
@@ -44,6 +44,10 @@ const routes = {
 
   '/403': {
     view: 'UnauthorizedRouteView'
+  },
+
+  '/404': {
+    view: 'RouteNotFoundView'
   }
 
 };
