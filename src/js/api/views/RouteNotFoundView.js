@@ -1,4 +1,4 @@
-import template from '../../../tags/not-found.tag';
+import template from '../../../templates/riot/not-found.tag';
 
 const RouteNotFoundView = {
   template

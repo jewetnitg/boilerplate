@@ -1,4 +1,4 @@
-import template from '../../../tags/policy-failure.tag';
+import template from '../../../templates/riot/policy-failure.tag';
 
 const UnauthorizedRouteView = {
   template

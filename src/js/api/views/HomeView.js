@@ -1,7 +1,7 @@
 /**
  * @author rik
  */
-import template from '../../../tags/home.tag';
+import template from '../../../templates/riot/home.tag';
 
 /**
  * HomeView is an example view

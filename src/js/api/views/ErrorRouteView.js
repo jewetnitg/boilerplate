@@ -1,4 +1,4 @@
-import template from '../../../tags/controller-error.tag';
+import template from '../../../templates/riot/controller-error.tag';
 
 const ErrorRouteView = {
   template

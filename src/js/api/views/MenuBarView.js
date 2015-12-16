@@ -1,7 +1,7 @@
 /**
  * @author rik
  */
-import template from '../../../tags/menu-bar.tag';
+import template from '../../../templates/riot/menu-bar.tag';
 
 const MenuBarView = {
   template

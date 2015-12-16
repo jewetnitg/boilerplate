@@ -1,10 +1,10 @@
-// written in ES5 so it can be used by the yeoman generator
-
 /**
  * @name config/views
  * @property holder {String}
  */
-module.exports = {
+const viewConfig = {
   holder: '.current-view',
   adapter: 'riot'
 };
+
+export default viewConfig;

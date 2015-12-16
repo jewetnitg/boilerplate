@@ -1,9 +1,6 @@
-/**
- * @author rik
- */
 import _ from 'lodash';
 import jquery from 'jquery';
-import riot from 'riot';
+import frontend from 'frntnd-framework';
 
 // frntnd framework implementation modules, models, views, services etc.
 const files = require('./**/!(main|main_dev|main_prod).js', {
@@ -28,10 +25,15 @@ _.each(files, (file, path) => {
 window.$ = jquery;
 window._ = _;
 
-frontendOptions.libraries = {
-  riot,
-  jquery
-};
+/**
+ * Constructs the framework and runs it with an environment
+ *
+ * @param [env="dev"] {String} Environment for the build, applies environment specific implementation
+ */
+function main(env = 'dev') {
+  frontendOptions.env = env;
+  // call the framework with the options generated from the files and the environment set
+  return frontend(frontendOptions);
+}
 
-// call the framework with the options generated from the files
-export default frontendOptions;
+export default main;
