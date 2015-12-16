@@ -1,7 +1,7 @@
 /**
  * @author rik
  */
-import template from '../../../templates/riot/home.tag';
+import template from '../../../templates/react/helloworld.jsx';
 
 /**
  * HomeView is an example view
@@ -9,6 +9,7 @@ import template from '../../../templates/riot/home.tag';
  * @extends View
  */
 const HomeView = {
+  adapter: 'react',
   template
 };
 
