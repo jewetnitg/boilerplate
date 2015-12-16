@@ -32,16 +32,9 @@ module.exports = function (gulp, plugins, growl) {
       'node_modules/babel-polyfill/lib/index',
       main.replace(/\.js$/gi, '_' + env + '.js')
     ];
-    var _babel = babel.configure({
-      // @todo only include frontend-framework node module
-      // the regex below doesn't work for some reason, for now include node modules, otherwise the build fails
-      //ignore: /((?!node_modules\/frontend-framework)(node_modules\/[\s|\S]+))|(\.tag$)/ig
-      ignore: /(\.tag$)/ig,
-      sourceMaps: "inline"
-    });
 
     return browserify(browserifyConfig)
-      .transform(_babel)
+      .transform(babel)
       .transform(riotify)
       .transform(requireGlobify)
       .plugin('minifyify', {

@@ -9,7 +9,7 @@
 const modelsConfig = {
   idAttribute: 'id',
   createdOnAttribute: 'createdAt',
-  connection: 'local-xhr',
+  connection: 'local-sails',
   updatedOnAttribute: 'updatedAt'
 };
 

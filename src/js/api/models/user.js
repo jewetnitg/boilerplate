@@ -9,11 +9,12 @@ import session from 'frntnd-framework/src/constants/session';
  * @type {Model}
  */
 const UserModel = {
-  connection: 'local-xhr',
+  connection: 'local-sails',
   requests: {
     login: {
       method: 'get',
       route: '/user/login',
+      security: ['user.isLoggedIn'],
       resolve(user) {
         return session.user = user;
       }
