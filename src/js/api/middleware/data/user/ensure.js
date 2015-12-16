@@ -2,10 +2,18 @@
  * @author rik
  */
 function ensureUser(req, res) {
-  req.session.user = res.user = res.user || req.session.user || {
-      firstName: 'En',
-      lastName: 'Sured'
-    };
+  return app.models.user.fetch(1)
+    .then((user) => {
+      app.models.user.listenTo(user, 'change', (user) => {
+        res.sync({
+          user: user
+        });
+      });
+
+      return {
+        user
+      };
+    });
 }
 
 export default ensureUser;
