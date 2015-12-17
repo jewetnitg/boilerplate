@@ -9,9 +9,6 @@ class helloworld extends React.Component {
       .then(
         (data) => {
           app.models.user.fetch()
-            .then(() => {
-              this.render();
-            });
         },
         (err) => {
           switch (err.code) {
