@@ -18,6 +18,11 @@ const UserModel = {
       resolve(user) {
         return session.user = user;
       }
+    },
+    uploadProfilePicture: {
+      method: 'post',
+      route: '/user/picture/:id',
+      upload: true
     }
   }
 };

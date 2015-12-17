@@ -34,7 +34,9 @@ module.exports = function (gulp, plugins, growl) {
     ];
 
     return browserify(browserifyConfig)
-      .transform(babel)
+      .transform(babel.configure({
+        ignore: /node_modules/ig
+      }))
       .transform(riotify)
       .transform(requireGlobify)
       .plugin('minifyify', {
