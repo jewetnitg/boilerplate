@@ -84,10 +84,7 @@ var buildConfig = {
       'build:dev',
 
       // launch the dev server
-      'devserver',
-
-      // rebuild on change
-      'watch'
+      'devserver'
     ]
   }
 
