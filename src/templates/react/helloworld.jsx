@@ -9,17 +9,7 @@ class helloworld extends React.Component {
       .then(
         (data) => {
           app.models.user.fetch()
-        },
-        (err) => {
-          switch (err.code) {
-            case 'E_EXCEEDS_UPLOAD_LIMIT':
-              alert('file is too big, max 10mb');
-              break;
-          }
-          console.error(err);
-          alert('err');
-        }
-      )
+        })
   }
 
   render() {
@@ -34,7 +24,7 @@ class helloworld extends React.Component {
     };
 
     return <div>
-      Hello, {this.props.user.firstName}!
+      Hello, {this.props.user.firstName}!!
       <Dropzone onDrop={this.onDrop} user={this.props.user} style={DropzoneStyle}/>
     </div>;
   }

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import jquery from 'jquery';
-import frontend from 'frntnd-framework';
+import laevis from 'laevis';
 
 // frntnd framework implementation modules, models, views, services etc.
 const files = require('./**/!(main|main_dev|main_prod).js', {
@@ -33,7 +33,7 @@ window._ = _;
 function main(env = 'dev') {
   frontendOptions.env = env;
   // call the framework with the options generated from the files and the environment set
-  return frontend(frontendOptions);
+  return laevis(frontendOptions);
 }
 
 export default main;

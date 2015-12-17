@@ -67,6 +67,17 @@ var buildConfig = {
       'tar'
     ],
 
+    'sync': [
+      // run browserify
+      'browserify:dev',
+
+      // copy static assets
+      'copy',
+
+      // compile and copy less
+      'less'
+    ],
+
     // run develop build and start a dev server
     'dev': [
       // build project

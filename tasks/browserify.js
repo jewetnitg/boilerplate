@@ -1,8 +1,10 @@
 var path = require('path');
+var server = require('./helpers/server');
 
 var _ = require('lodash');
 
 var browserify = require('browserify');
+var watchify = require('watchify');
 var riotify = require('riotify');
 
 var babel = require('babelify');
@@ -28,14 +30,18 @@ module.exports = function (gulp, plugins, growl) {
       throw new Error('Browserify config entries must be a string');
     }
 
-    browserifyConfig.entries = [
-      'node_modules/babel-polyfill/lib/index',
-      main.replace(/\.js$/gi, '_' + env + '.js')
-    ];
+    _.extend(browserifyConfig, {
+      entries: [
+        'node_modules/babel-polyfill/lib/index',
+        main.replace(/\.js$/gi, '_' + env + '.js')
+      ],
+      cache: {},
+      packageCache: {}
+    });
 
-    return browserify(browserifyConfig)
+    var b = browserify(browserifyConfig)
       .transform(babel.configure({
-        ignore: /node_modules/ig
+        ignore: ["node_modules"]
       }))
       .transform(riotify)
       .transform(requireGlobify)
@@ -44,14 +50,35 @@ module.exports = function (gulp, plugins, growl) {
         base: 'src',
         output: './build/dst/main.js.map'
       })
-      .bundle()
-      .on('error', function (err) {
-        console.error(err);
-        this.emit('end');
-      })
-      .pipe(source('main.js'))
-      .pipe(buffer())
-      .pipe(gulp.dest('./build/dst'));
+      .plugin(watchify);
+
+    function bundle(reload) {
+      console.log('started browserify');
+
+      var stream = b.bundle()
+        .on('error', function (err) {
+          console.error(err);
+          this.emit('end');
+        })
+        .on('end', function (err) {
+          console.log('finished browserify');
+        })
+        .pipe(source('main.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('./build/dst'));
+
+      if (reload) {
+        stream.pipe(server.reload());
+      }
+
+      return stream;
+    }
+
+    b.on('update', function () {
+      bundle(true);
+    });
+
+    return bundle();
   }
 
   var envs = ['prod', 'dev'];
