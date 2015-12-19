@@ -1,7 +1,10 @@
 <not-found>
 
-  <div>
-    404 - The page you were looking for could not be found.
+  <div class="error-message-holder">
+    <div class="box">
+      <div class="statusCode">404</div>
+      <div class="message">The requested page could not be found.</div>
+    </div>
   </div>
 
   <script>

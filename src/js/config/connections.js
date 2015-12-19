@@ -9,7 +9,8 @@ const connections = {
   },
   'local-sails': {
     url: 'http://192.168.0.7:1337',
-    adapter: 'SAILS_IO'
+    adapter: 'SAILS_IO',
+    cache: 2000
   }
 };
 

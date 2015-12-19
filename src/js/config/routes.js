@@ -34,7 +34,8 @@ const routes = {
 
   '/home': {
     view: 'HomeView',
-    data: ['user.ensure'],
+    data: ['user.ensure', 'user.listener', 'broken'],
+    //security: ['alwaysDeny'],
     staticViews: ['menuBar']
   },
 

@@ -3,6 +3,10 @@ var server = require('./helpers/server');
 
 var _ = require('lodash');
 
+var uglify = require('gulp-uglify');
+var gzip = require('gulp-gzip');
+var hbsfy = require('hbsfy');
+
 var browserify = require('browserify');
 var watchify = require('watchify');
 var riotify = require('riotify');
@@ -29,6 +33,16 @@ module.exports = function (gulp, plugins, growl) {
     if (typeof main !== 'string') {
       throw new Error('Browserify config entries must be a string');
     }
+    var extraBrowserifyConfig = {};
+    var minifyifyOptions = {
+      base: 'src'
+    };
+
+    if (env === 'prod') {
+      extraBrowserifyConfig.debug = false;
+    } else {
+      extraBrowserifyConfig.debug = true;
+    }
 
     _.extend(browserifyConfig, {
       entries: [
@@ -37,20 +51,30 @@ module.exports = function (gulp, plugins, growl) {
       ],
       cache: {},
       packageCache: {}
-    });
+    }, extraBrowserifyConfig);
 
     var b = browserify(browserifyConfig)
       .transform(babel.configure({
         ignore: ["node_modules"]
       }))
       .transform(riotify)
-      .transform(requireGlobify)
-      .plugin('minifyify', {
-        map: 'main.js.map',
+      .transform(hbsfy.configure({
+        extensions: ['hbs', 'hbt', 'handlebars'],
+        traverse: true
+      }))
+      .transform(requireGlobify);
+
+    if (env === 'prod') {
+
+    } else {
+      b.plugin('minifyify', {
         base: 'src',
-        output: './build/dst/main.js.map'
-      })
-      .plugin(watchify);
+        output: './build/dst/main.js.map',
+        map: 'main.js.map'
+      });
+    }
+
+    b.plugin(watchify);
 
     function bundle(reload) {
       console.log('started browserify');
@@ -64,8 +88,14 @@ module.exports = function (gulp, plugins, growl) {
           console.log('finished browserify');
         })
         .pipe(source('main.js'))
-        .pipe(buffer())
-        .pipe(gulp.dest('./build/dst'));
+        .pipe(buffer());
+
+      if (env === 'prod') {
+        stream.pipe(uglify());
+      } else {
+      }
+
+      stream.pipe(gulp.dest('./build/dst'));
 
       if (reload) {
         stream.pipe(server.reload());

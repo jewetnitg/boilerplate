@@ -11,6 +11,11 @@ import session from 'frntnd-framework/src/constants/session';
 const UserModel = {
   connection: 'local-sails',
   requests: {
+    cachedFetch: {
+      method: 'get',
+      route: '/user/:id',
+      cache: 10000
+    },
     login: {
       method: 'get',
       route: '/user/login',

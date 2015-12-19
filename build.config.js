@@ -4,6 +4,7 @@
 
 /**
  * @name build.config
+ * @todo TBD: refactor to JSON?
  * @desc The build.config file contains config for builds
  * @property taskDir {String} The directory in which to look for gulp tasks
  * @property defaultTask {String} The default task to run when gulp is ran without arguments
@@ -12,13 +13,15 @@
  */
 var buildConfig = {
 
-  // directory in which the tasks are located, tasks may be nested under directories
+  // directory in which the tasks are located, tasks may be placed in subdirectories, please note that files will only be treated as tasks if they export a function
   tasksDir: './tasks',
 
-  // default task to run, eg. this task is ran when running gulp without a task
+  // default task to run, this task is ran when running gulp without arguments
   defaultTask: "build:prod",
 
+  // definition of task sequences
   tasks: {
+
     // run production build
     'build:prod': [
       // run tests once
@@ -51,7 +54,7 @@ var buildConfig = {
       // clean build dir
       'clean',
 
-      // run browserify
+      // run browserify, watches for changes also
       'browserify:dev',
 
       // copy static assets
@@ -67,24 +70,16 @@ var buildConfig = {
       'tar'
     ],
 
-    'sync': [
-      // run browserify
-      'browserify:dev',
-
-      // copy static assets
-      'copy',
-
-      // compile and copy less
-      'less'
-    ],
-
     // run develop build and start a dev server
     'dev': [
-      // build project
+      // build project, watches for js file changes also
       'build:dev',
 
       // launch the dev server
-      'devserver'
+      'devserver',
+
+      // watch for non js|jsx|tag file changes
+      'watch'
     ]
   }
 

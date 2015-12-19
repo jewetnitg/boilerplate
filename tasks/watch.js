@@ -2,8 +2,8 @@
  * @author rik
  */
 
-module.exports = function (gulp, plugins, growl) {
-  gulp.task('watch', function (cb) {
-    //gulp.watch('./src/**/*.*', ['sync']);
+module.exports = function (gulp) {
+  gulp.task('watch', function () {
+    return gulp.watch('./src/**/!(*.js|*.jsx|*.tag)', ['copy', 'less']);
   });
 };
