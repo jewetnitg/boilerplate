@@ -34,15 +34,8 @@ module.exports = function (gulp, plugins, growl) {
       throw new Error('Browserify config entries must be a string');
     }
     var extraBrowserifyConfig = {};
-    var minifyifyOptions = {
-      base: 'src'
-    };
 
-    if (env === 'prod') {
-      extraBrowserifyConfig.debug = false;
-    } else {
-      extraBrowserifyConfig.debug = true;
-    }
+    extraBrowserifyConfig.debug = env !== 'prod';
 
     _.extend(browserifyConfig, {
       entries: [
@@ -64,9 +57,7 @@ module.exports = function (gulp, plugins, growl) {
       }))
       .transform(requireGlobify);
 
-    if (env === 'prod') {
-
-    } else {
+    if (env === 'dev') {
       b.plugin('minifyify', {
         base: 'src',
         output: './build/dst/main.js.map',
@@ -84,7 +75,7 @@ module.exports = function (gulp, plugins, growl) {
           console.error(err);
           this.emit('end');
         })
-        .on('end', function (err) {
+        .on('end', function () {
           console.log('finished browserify');
         })
         .pipe(source('main.js'))
@@ -92,7 +83,6 @@ module.exports = function (gulp, plugins, growl) {
 
       if (env === 'prod') {
         stream.pipe(uglify());
-      } else {
       }
 
       stream.pipe(gulp.dest('./build/dst'));
