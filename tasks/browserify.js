@@ -38,6 +38,7 @@ module.exports = function (gulp, plugins, growl) {
     extraBrowserifyConfig.debug = env !== 'prod';
 
     _.extend(browserifyConfig, {
+      insertGlobals: true,
       entries: [
         'node_modules/babel-polyfill/lib/index',
         main.replace(/\.js$/gi, '_' + env + '.js')
