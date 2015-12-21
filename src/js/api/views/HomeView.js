@@ -12,7 +12,14 @@ const HomeView = {
   adapter: 'react',
   //data: ['user.override'],
   //security: ['alwaysDeny'],
-  template
+  template,
+  subViews: {
+    menuBar: {
+      view: 'MenuBarView',
+      holder: '[data-reactid=".0"]',
+      data: ['user.ensure', 'user.listener']
+    }
+  }
 };
 
 export default HomeView;
