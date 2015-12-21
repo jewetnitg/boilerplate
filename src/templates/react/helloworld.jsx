@@ -11,7 +11,7 @@ class HelloWorld extends React.Component {
   render() {
     HelloWorld.DropzoneStyle.backgroundImage = 'url("' + this.props.user.picture + '?_ts=' + Date.now() + '")';
 
-    return <div>
+    return <div className="hello-world">
       Hello, {this.props.user.firstName}!!
       <Dropzone onDrop={this.onDrop} user={this.props.user} style={HelloWorld.DropzoneStyle}/>
     </div>;

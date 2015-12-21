@@ -39,6 +39,13 @@ const routes = {
     staticViews: ['menuBar']
   },
 
+  '/home/:testSplat': {
+    view: 'HomeView',
+    data: ['user.ensure', 'user.listener', 'broken'],
+    //security: ['alwaysDeny'],
+    staticViews: ['menuBar']
+  },
+
   '/500': {
     view: 'ErrorRouteView'
   },

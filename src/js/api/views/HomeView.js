@@ -16,7 +16,7 @@ const HomeView = {
   subViews: {
     menuBar: {
       view: 'MenuBarView',
-      holder: '[data-reactid=".0"]',
+      holder: '.hello-world',
       data: ['user.ensure', 'user.listener']
     }
   }
