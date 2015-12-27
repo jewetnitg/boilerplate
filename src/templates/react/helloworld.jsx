@@ -13,6 +13,7 @@ class HelloWorld extends React.Component {
 
     return <div className="hello-world">
       Hello, {this.props.user.firstName}!!
+      <a href="/home/afaffa">broken route</a>
       <Dropzone onDrop={this.onDrop} user={this.props.user} style={HelloWorld.DropzoneStyle}/>
     </div>;
   }

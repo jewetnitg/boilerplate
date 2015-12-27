@@ -10,7 +10,8 @@ import template from '../../../templates/react/helloworld.jsx';
  */
 const HomeView = {
   adapter: 'react',
-  //data: ['user.override'],
+  holder: '.current-view .react',
+  //data: ['user.listener'],
   //security: ['alwaysDeny'],
   template,
   subViews: {

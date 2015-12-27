@@ -3,7 +3,7 @@
  */
 function listenToUser(req, res) {
   if (res.user) {
-    app.models.user.listenTo(res.user, 'change', (user) => {
+    res.destruct = app.models.user.listenTo(res.user, 'change', (user) => {
       res.sync({
         user: user
       });

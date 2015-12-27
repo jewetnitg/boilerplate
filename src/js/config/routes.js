@@ -34,7 +34,7 @@ const routes = {
 
   '/home': {
     view: 'HomeView',
-    data: ['user.ensure', 'user.listener', 'broken'],
+    data: ['user.ensure', 'user.listener'],
     //security: ['alwaysDeny'],
     staticViews: ['menuBar']
   },
@@ -47,7 +47,8 @@ const routes = {
   },
 
   '/500': {
-    view: 'ErrorRouteView'
+    view: 'ErrorRouteView',
+    data: ['error.ensureMessage']
   },
 
   '/403': {
