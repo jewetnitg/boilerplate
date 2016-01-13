@@ -4,7 +4,7 @@
 import _ from 'lodash';
 
 // load all framework implementation modules; config, models, views, services etc.
-const files = require('../**/!(main|main_dev|main_prod).js', {
+const files = require('../**/!(main|main_dev|main_prod|state).js', {
   mode: 'hash'
 });
 

@@ -12,7 +12,7 @@ const appConfig = {
 
   defaultLocale: 'en-GB',
   descriptorUrl: 'http://localhost:1337/_describe',
-  defaultConnection: 'local-sails'
+  defaultServer: 'local'
 
 };
 

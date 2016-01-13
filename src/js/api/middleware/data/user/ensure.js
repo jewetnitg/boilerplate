@@ -1,8 +1,7 @@
-/**
- * @author rik
- */
+import instance from '../../../../state';
+
 function ensureUser(req, res) {
-  return app.models.user.fetch()
+  return instance.server.user.findAll()
     .then((users) => {
       res.user = users[0];
     });

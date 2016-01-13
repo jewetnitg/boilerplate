@@ -1,13 +1,16 @@
-/**
- * @author rik
- */
 function listenToUser(req, res) {
   if (res.user) {
-    res.destruct = app.models.user.listenTo(res.user, 'change', (user) => {
+    function eventHandler(user) {
       res.sync({
-        user: user
+        user
       });
-    });
+    }
+
+    res.destruct = function () {
+      res.user.off('change', eventHandler);
+    };
+
+    res.user.on('change', eventHandler);
   }
 }
 

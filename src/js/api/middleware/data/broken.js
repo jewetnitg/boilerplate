@@ -1,8 +1,5 @@
-/**
- * @author rik
- */
 function brokenMiddleware(req, res) {
-  diz.function.does.not.exist.and.will.throw.a.TypeError();
+  read.from.some.object.that.doesnt.exist.and.a.ReferenceError.is.thrown;
 }
 
 export default brokenMiddleware;

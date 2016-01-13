@@ -1,11 +1,12 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import _ from 'lodash';
+import instance from '../../js/state';
 
 class HelloWorld extends React.Component {
 
   onDrop(files) {
-    app.models.user.server.uploadProfilePicture(this.props.user.id, files);
+    instance.models.user.server.uploadProfilePicture(this.props.user.id, files);
   }
 
   render() {

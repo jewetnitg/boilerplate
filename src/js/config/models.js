@@ -9,8 +9,8 @@
 const modelsConfig = {
   idAttribute: 'id',
   createdOnAttribute: 'createdAt',
-  connection: 'local-sails',
-  updatedOnAttribute: 'updatedAt'
+  updatedOnAttribute: 'updatedAt',
+  connection: 'local-sails'
 };
 
 export default modelsConfig;
